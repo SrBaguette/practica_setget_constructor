@@ -1,10 +1,10 @@
-from funciones import Persona, AdministrarDatos
+from funciones import Persona, AdministrarDatos #importación de clases Persona y Administrar datos
 opc=-1
-proce=AdministrarDatos()
-while opc !=0:
-    print("Bienvenido al menú")
+proce=AdministrarDatos() #Creacion de objeto proce para manejar definiciones de admindatos
+while opc !=0: #ciclo para el menú
+    print("Bienvenido al menú") 
     print("1. Agregar Persona \n 2. Modificar Persona \n 3. Eliminar Persona \n 4. Mostrar todas las personas \n 0. Salir")
-    opc=input("Ingrese una opción: ")
+    opc=input("Ingrese una opción: ") #Imprime menú y le pide al cliente que ingrese una opción del menú
     if opc=="1":
         nombre=input("Ingrese el nombre: ")
         apellido=input("Ingrese el apellido: ")
@@ -12,21 +12,18 @@ while opc !=0:
         edad=input("Ingrese la edad: ")
         correo=input("Ingrese el correo: ")
         ocupacion=input("Ingrese la ocupación: ")
-        genero=input("Ingrese el genero: ")
-        perso=Persona(nombre,apellido,edad,correo,ocupacion,genero,identificacion)
+        genero=input("Ingrese el genero: ") #aca se le piden los datos al cliente
+        perso=Persona(nombre,apellido,edad,correo,ocupacion,genero,identificacion) #se crea el objeto perso con los atributos que brindó el cliente
         print("Datos de la persona: ")
-        perso.mostrardatos()
-        proce.addper(perso)
+        perso.mostrardatos() #se usa definición mostrar datos para mostrar los datos que se acabaron de ingresar
+        proce.addper(perso) #Se añade el objeto a la lista en AdminDatos
         
     elif opc=="2":
         print("testy")
 
-    elif opc=="4":
-        for datos in proce.mostrar():
-            print("Persona #",datos,":")
-            print(datos)
-            print("\n")
-    elif opc=="3":
+    elif opc=="4": #para mostrar los datos de todas las personas
+        proce.mostrar()
+    elif opc=="3": #Permite eliminar los datos ingresando el numero de la persona, siendo el numero el orden en el cual salen al mostrar toda la lista
         numero=int(input("Ingrese la posicion de la persona que desea eliminar: "))
         proce.borrar(numero)
     elif opc=="0":
