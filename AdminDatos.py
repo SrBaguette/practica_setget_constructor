@@ -27,3 +27,16 @@ class AdministrarDatos: #clase creada para administrar datos
         while checka.isdigit()==False:# revisa si el texto ingresado es numero o no
             checka=input("La edad no es un numero, vuelva a ingresar: ")
         return checka
+    
+    def buscar(self):
+        identificacion=input() 
+        veri=0           
+        if self.listaPersonas:
+            for p in self.listaPersonas :
+                if p.identificacion == identificacion :
+                    veri=1
+                    p.mostrardatos()
+            if veri==0:
+                print("no se encontro la persona")    
+        else:
+            print("la lista esta vacia")
