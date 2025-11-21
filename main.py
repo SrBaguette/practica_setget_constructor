@@ -1,4 +1,5 @@
-from funciones import Persona, AdministrarDatos #importación de clases Persona y Administrar datos
+from Persona import Persona #importación de clase Persona
+from AdminDatos import AdministrarDatos #importación de clase Administrar datos
 opc=-1
 proce=AdministrarDatos() #Creacion de objeto proce para manejar definiciones de admindatos
 while opc !=0: #ciclo para el menú
@@ -8,8 +9,10 @@ while opc !=0: #ciclo para el menú
     if opc=="1":
         nombre=input("Ingrese el nombre: ")
         apellido=input("Ingrese el apellido: ")
-        identificacion=input("Ingrese el numero de indetificación")
+        identificacion=input("Ingrese el numero de indetificación: ")
+        identificacion=proce.checka(identificacion) #revisa si el numero esta repetido y si es un numero
         edad=input("Ingrese la edad: ")
+        edad=proce.esnum(edad) #Revisa si la edad es un numero
         correo=input("Ingrese el correo: ")
         ocupacion=input("Ingrese la ocupación: ")
         genero=input("Ingrese el genero: ") #aca se le piden los datos al cliente
